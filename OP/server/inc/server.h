@@ -16,9 +16,10 @@
 #include <string.h>
 
 #include <sqlite3.h>
-#include "cJSON.h"
 
 #include <sys/types.h>
 #include <sys/socket.h>
 
 #include <unistd.h>
+
+#include <errno.h>

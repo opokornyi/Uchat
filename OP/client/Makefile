@@ -9,11 +9,11 @@ VPATH = VPATH = $(subst $(SPACE), :, $(SRCD))
 CLIENT_WD = client/$(CLIENT)_wd
 
 OBJD = obj
-INCD_LIBS = -I../libraries/include
-LIBD_LIBS = -L../libraries/lib
+# INCD_LIBS = -I../libraries/include
+# LIBD_LIBS = -L../libraries/lib
 INCD_CLIENT = -Iinc/
 UTILS_INC = -I../utils/inc
-UTILS_LIB = ../utils/libutils.a
+# UTILS_LIB = ../utils/libutils.a
 GTK_LIBS = -rdynamic `pkg-config --cflags --libs gtk+-3.0`
 GTK_INC = `pkg-config --cflags gtk+-3.0`
 
@@ -31,9 +31,9 @@ CC = clang
 TEST_FLAG = -DMX_UNIT_TEST
 CFLAGS = -std=c11 $(addprefix -W, all extra error pedantic)
 CPPFLAGS = -DMX_CLIENT='"$(CLIENT_WD)"' $(INCD_CLIENT) -D_GNU_SOURCE \
-$(UTILS_INC) $(GTK_INC) $(INCD_LIBS) -I/usr/local/opt/openssl/include
-LIBS = $(GTK_LIBS) $(LIBD_LIBS) -L/usr/local/opt/openssl/lib \
--lssl -lcjson -lcrypto -lsqlite3 -lpthread
+$(UTILS_INC) $(GTK_INC) -I/usr/local/opt/openssl/include
+LIBS = $(GTK_LIBS) -L/usr/local/opt/openssl/lib \
+-lssl -lcrypto -lsqlite3 -lpthread
 
 all: $(CLIENT)
 

@@ -21,8 +21,7 @@
 
 #include <pthread.h>
 #include <signal.h>
-
-#include "cJSON.h"
+ 
 #include <gtk/gtk.h>
 
 typedef struct s_gtk {
